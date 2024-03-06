@@ -13,15 +13,14 @@ pipeline{
         }
         stage("Dockerized Laravel"){
             steps{
-                sh '''docker build -t adhitya/lapp
-                docker tag adhitya/app1 localhost:5000/adhitya/lapp
-                docker push localhost:5000/adhitya/lapp
-                '''
+                sh 'docker build -t adhitya/lapp'
+                sh 'docker tag adhitya/app1 localhost:5000/adhitya/lapp'
+                sh 'docker push localhost:5000/adhitya/lapp'
             }
         }
         stage("Deploy Laravel Application"){
             steps{
-               sh 'docker run --name mylapp -p 8080:8080 -d localhost:5000/adhitya/lapp'
+                sh 'docker run --name mylapp -p 8080:8080 -d localhost:5000/adhitya/lapp'
             }
         }
     }
