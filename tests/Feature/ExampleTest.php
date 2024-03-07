@@ -14,7 +14,7 @@ class ExampleTest extends TestCase
     {
         $response = $this->get('/post');
 
-        $response->assertSee('Welcrrrrme');
+        $response->assertSee('Welcome');
 
         // $response->assertStatus(200);
     }
