@@ -21,7 +21,7 @@ pipeline{
         }
         stage("Deploy Laravel Application"){
             steps{
-                sh 'docker run --name mylapp -p 8080:8080 -d \
+                sh 'docker run --name mylapp -p 8085:8080 -d \
                     localhost:5000/adhitya/lapp'
             }
         }
