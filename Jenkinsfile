@@ -24,6 +24,7 @@ pipeline{
         }
         stage("User Acceptance Test"){
             steps{
+                sh 'docker rm -f mylapp_uat'
                 sh 'docker run --rm --name mylapp_uat -p 8000:8000 -d localhost:5000/adhitya/lapp'
                 sh 'php artisan dusk'
             }
