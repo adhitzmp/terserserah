@@ -24,7 +24,7 @@ pipeline{
         }
         stage("User Acceptance Test"){
             steps{
-                sh 'docker rm -f mylapp_uat'
+                // sh 'docker rm -f mylapp_uat'
                 sh 'docker run --rm --name mylapp_uat -p 8000:8000 -d localhost:5000/adhitya/lapp'
                 sh 'php artisan dusk'
             }
@@ -44,7 +44,7 @@ pipeline{
         stage("Deploy Laravel Application"){
             steps{
                 sh 'docker rm -f mylapp_ops'
-                sh 'docker run --name mylapp_ops -p 8000:8000 -d \
+                sh 'docker run --name mylapp_ops -p 8001:8000 -d \
                     localhost:5000/adhitya/lapp'
             }
         }
