@@ -15,7 +15,7 @@ pipeline{
         stage("Dockerized Laravel"){
             steps{
                 sh 'docker build -t adhitya/lapp .'
-                sh 'docker tag adhitya/app1 localhost:5000/adhitya/lapp'
+                sh 'docker tag adhitya/app localhost:5000/adhitya/lapp'
                 sh 'docker push localhost:5000/adhitya/lapp'
             }
         }
